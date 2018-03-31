@@ -1,0 +1,32 @@
+@startuml
+
+    actor User
+    participant "Web Page" as Page
+    participant "php service" as Service
+
+    User -> Page: Request Page
+    activate Page
+        Page --> User: Show Main
+        User -> Page: Interact (Get Bus's route)
+        Page -> Service: Get Directions (number)
+        activate Service
+            create control WebScrap
+            Service -> WebScrap
+            activate WebScrap
+                participant "External Bus's Company" as ExternalService
+                WebScrap -> ExternalService: HTTP Request Page
+                ExternalService -> WebScrap: Html Page
+                WebScrap -> WebScrap: Extract Directions 
+                WebScrap -> Service: Directions
+            destroy WebScrap
+            |||
+            Service -> Page: Directions
+        deactivate Service
+        Page --> User: Show Directions List
+        User -> Page: Set Route
+        Page --> User: Show Route on Map
+    deactivate Page
+    
+
+
+@enduml

@@ -1,0 +1,12 @@
+
+skinparam sequence {
+        SequenceMessageAlign center
+        
+        'Participant style'
+        ParticipantBorderColor black
+        ParticipantBackgroundColor white
+
+        'Actor Style'
+        ActorBorderColor black
+        ActorBackGroundColor white
+}

@@ -1,6 +1,7 @@
-@startuml
-
-    actor User
+@startuml Web-Map - Bus Integration 
+ 
+    skinparam monochrome true
+    actor User    
     participant "Web Page" as Page
     participant "php service" as Service
 
@@ -27,6 +28,4 @@
         Page --> User: Show Route on Map
     deactivate Page
     
-
-
 @enduml
